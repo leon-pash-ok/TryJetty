@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
+    <Properties>
+        <Property name="pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{40} - %msg%n</Property>
+    </Properties>
     <Appenders>
-        <File name="FILEOUT" fileName="A1.log" append="false">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        <File name="FileOut" fileName="A1.log" append="false">
+            <PatternLayout pattern="${pattern}"/>
         </File>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="${pattern}"/>
         </Console>
     </Appenders>
     <Loggers>
@@ -14,7 +17,7 @@
         </Logger>-->
         <Root level="debug">
             <AppenderRef ref="Console"/>
-            <AppenderRef ref="FILEOUT"/>
+            <AppenderRef ref="FileOut"/>
         </Root>
     </Loggers>
 </Configuration>
