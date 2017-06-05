@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="rat" class="ua.leonpasha.dao.SomeDao">
+    <bean id="SomeDao" class="ua.leonpasha.dao.SomeDao">
         <constructor-arg value="Hi!"/>
         <property name="name" value="Alice"/>
     </bean>

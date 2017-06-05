@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <File name="FILEOUT" fileName="A1.log" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+  <!--      <Logger name="org.apache.log4j.xml" level="debug">
+            <AppenderRef ref="FILEOUT"/>
+        </Logger>-->
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FILEOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
