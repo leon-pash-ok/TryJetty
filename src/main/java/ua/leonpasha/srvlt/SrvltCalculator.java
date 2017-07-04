@@ -23,6 +23,9 @@
 
 package ua.leonpasha.srvlt;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +41,7 @@ import java.io.UnsupportedEncodingException;
 public class SrvltCalculator extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    private static final Logger logger = LogManager.getLogger(ServletSome.class);
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
@@ -91,6 +95,8 @@ public class SrvltCalculator extends HttpServlet {
     }
 
     protected void doSetResult( HttpServletResponse response, double result ) throws UnsupportedEncodingException, IOException {
+        logger.info("doSetResult");
+        log("ththty");
         String reply = "{\"error\":0,\"result\":" + Double.toString(result) + "}";
         response.getOutputStream().write( reply.getBytes("UTF-8") );
         response.setContentType("application/json; charset=UTF-8");
@@ -99,6 +105,7 @@ public class SrvltCalculator extends HttpServlet {
     }
 
     protected void doSetError( HttpServletResponse response ) throws UnsupportedEncodingException, IOException {
+        logger.info("doSetError");
         String reply = "{\"error\":1}";
         response.getOutputStream().write( reply.getBytes("UTF-8") );
         response.setContentType("application/json; charset=UTF-8");

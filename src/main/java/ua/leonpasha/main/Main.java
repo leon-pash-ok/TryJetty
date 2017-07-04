@@ -9,6 +9,7 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.leonpasha.dao.SomeDao;
+import ua.leonpasha.srvlt.ServletSome;
 import ua.leonpasha.srvlt.SrvltCalculator;
 import org.eclipse.jetty.server.Handler;
 /**
@@ -25,6 +26,7 @@ public class Main {
 
         // http://localhost:8080/func
         context.addServlet(new ServletHolder( new SrvltCalculator() ),"/func");
+        context.addServlet(new ServletHolder( new ServletSome() ),"/hi");
 
         HandlerList handlers = new HandlerList();
         handlers.setHandlers(new Handler[] { context });
@@ -33,6 +35,7 @@ public class Main {
         try {
             server.start();
             System.out.println("Listening port : " + port );
+            logger.info("Listening port : " + port);
             server.join();
 
         } catch (Exception e) {
